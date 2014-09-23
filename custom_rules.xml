@@ -1,0 +1,27 @@
+<!-- 
+	
+	The target jarscripts will turn a directory of files into a jarfile in libs/
+		  
+ -->
+ 
+<project name="custom_rules">
+   <target name="jarscripts" >
+	  	<property name="toJar" value="scripts/" />
+   		<property name="libDir" value="libs" />
+   		<property name="jarFile" value="scripts.jar" />
+   		
+   		<property name="fullJarFile" value="${libDir}/${jarFile}" />
+   		<echo message="Files to be jarred are in ---  ${toJar}" />
+   		<echo message="Jarfile will be  ------------  ${fullJarFile}"/>
+   		
+   		<exec executable="jar" >
+      	<arg value="-cf" />
+      	<arg value="${fullJarFile}" />
+      	<arg value="-C" />
+      	<arg value="${toJar}" />
+      	<arg value="." />
+      </exec>
+  
+   
+   </target>
+</project>
