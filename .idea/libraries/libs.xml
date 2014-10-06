@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/libs" />
+      <root url="file://$PROJECT_DIR$/../myRuby_1_7_11/libs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/libs" />
+      <root url="file://$PROJECT_DIR$/../myRuby_1_7_11/libs" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../myRuby_1_7_11/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../myRuby_1_7_11/libs" recursive="false" type="SOURCES" />
   </library>
 </component>
