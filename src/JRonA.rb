@@ -38,11 +38,14 @@ class JRonA
 	def jronaSetContentView(vvv)
 		
 			@activity.runOnUiThread do
-				@activity.setContentView(vvv)
+					@activity.setContentView(vvv)
 			end
-			
-	end # jronaSetContentView
-	
+
+		end # jronaSetContentView
+
+
+
+
 ##							For Info:  Following is an alternative to runOnUiThread
 
 #					h = Handler.new(Looper.getMainLooper())

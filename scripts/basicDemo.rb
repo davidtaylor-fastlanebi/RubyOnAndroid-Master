@@ -8,7 +8,7 @@ include Java
 java_import 'android.widget.LinearLayout'
 java_import 'android.widget.Button'
 java_import 'android.widget.TextView'
-# david debug - java_import 'android.widget.EditText'
+java_import 'android.widget.EditText'
 
 class JRonA
 
@@ -56,9 +56,9 @@ class JRonA
     @lay.setOrientation(LinearLayout::VERTICAL)
 
     @lbl = TextView.new(@activity)
-    @lbl.setText('Hello from ITFlexSolutions')
+    @lbl.setText('Hello from David')
 
-# david debug -     @edit = EditText.new(@activity)
+    @edit = EditText.new(@activity)
     
     tm = Time.now
     @timeVu = TextView.new(@activity)
@@ -70,10 +70,10 @@ class JRonA
 
 		@btnText = Button.new(@activity)
 		@btnText.setText("Update Text")
-		@btnText.setOnClickListener(proc { updateTime }) # david debug - should read updateText
+		@btnText.setOnClickListener(proc { updateText })
     
     @lay.addView(@lbl)
-# david debug -     @lay.addView(@edit)
+    @lay.addView(@edit)
     @lay.addView(@timeVu)
     @lay.addView(@btnTime)
     @lay.addView(@btnText)
