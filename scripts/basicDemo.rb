@@ -1,4 +1,6 @@
 # this file is basicDemo.rb
+# changes for TAB Exacta & Qunella fair value application
+#
 
 		# this makes java_import work
 include Java
@@ -28,56 +30,55 @@ class JRonA
 	
 	end # startDemo
 
-#======================
-
-	def updateTime
-	
-		tm = Time.now
-		@timeVu.setText(tm.strftime("%d %b %Y  %H:%M:%S"))
-	
-	end # updateTime
-
-#=======================
 
 #======================
 
-	def updateText
+	def updateExotics
 
-		edit = @edit.getText()
-		@lbl.setText(edit)
+		exacta = @editTextFirst.getText() #    David debug - babby steps
+		quinella = @editTextSecond.getText() #  David debug - babby steps
 
-	end # updateText
+		@calcE.setText(exacta)
+		@calcQ.setText(quinella)
+
+	end # updateExotics
+
+
 
 #=======================
-
 	def setupLayouts
   
     @lay = LinearLayout.new(@activity)
     @lay.setOrientation(LinearLayout::VERTICAL)
 
-    @lbl = TextView.new(@activity)
-    @lbl.setText('Hello from David')
+    @editTextFirst = EditText.new(@activity)
+    @editTextFirst.setText("Type here, the win price for First Place")
 
-    @edit = EditText.new(@activity)
-    
-    tm = Time.now
-    @timeVu = TextView.new(@activity)
-    @timeVu.setText(tm.strftime("%d %b %Y  %H:%M:%S"))
+ 	@btnFirst = Button.new(@activity)
+    @btnFirst.setText("Update win price First")
 
-        @btnTime = Button.new(@activity)
-    	@btnTime.setText("Update Time")
-    	@btnTime.setOnClickListener(proc { updateTime })
+    @editTextSecond = EditText.new(@activity)
+    @editTextSecond.setText("Type here, the win price for Second Place")
 
-		@btnText = Button.new(@activity)
-		@btnText.setText("Update Text")
-		@btnText.setOnClickListener(proc { updateText })
-    
-    @lay.addView(@lbl)
-    @lay.addView(@edit)
-    @lay.addView(@timeVu)
-    @lay.addView(@btnTime)
-    @lay.addView(@btnText)
-    
+  	@btnSecond = Button.new(@activity)
+    @btnSecond.setText("Update win price Second")
+
+    @calcE = TextView.new(@activity)
+    @calcE.setText("Racing Exacta Calculator fair value")
+
+    @calcQ = TextView.new(@activity)
+    @calcQ.setText("Racing Quinella Calculator fair value")
+
+    @lay.addView(@editTextFirst)
+    @lay.addView(@btnFirst)
+    @lay.addView(@editTextSecond)
+    @lay.addView(@btnSecond)
+    @lay.addView(@calcE)
+    @lay.addView(@calcQ)
+
+ 	@btnFirst.setOnClickListener(proc { updateExotics })
+	@btnSecond.setOnClickListener(proc { updateExotics })
+
   end # setupLayouts
 
 #======================

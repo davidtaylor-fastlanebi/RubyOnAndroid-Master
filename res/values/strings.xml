@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">myRuby</string>
-    <string name="splash">Hello Worlds, myRuby</string>
-    <string name="blah">Input Text Here</string>
+    <string name="editTextFirst">Type here, the win price for First Place</string>
+    <string name="btnFirst">Update win price First</string>
+
+    <string name="editTextSecond">Type here, the win price for Second Place</string>
+    <string name="btnSecond">Update win price Second</string>
+
+    <string name="calcE">Racing Exacta Calculator fair value</string>
+    <string name="calcQ">Racing Quinella Calculator fair value</string>
+
+    <string name="blank"></string>
 </resources>
