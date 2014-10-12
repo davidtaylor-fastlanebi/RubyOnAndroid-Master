@@ -43,11 +43,37 @@ class JRonA
 
 	end # updateExotics
 
+#======================
 
+	def updateWinPriceFirst
+
+        if @editTextFirst.hasFocus()
+		    @editTextFirst.setText("")
+		    end
+		 @TYPE_NUMBER_FLAG_DECIMAL = 8192 # for decimal
+		 @editTextFirst.setRawInputType(@TYPE_NUMBER_FLAG_DECIMAL)
+
+		puts "First"
+
+	end # updateWinPriceFirst
+
+#======================
+
+	def updateWinPriceSecond
+
+       if @editTextSecond.hasFocus()
+		    @editTextSecond.setText("")
+		    end
+		@TYPE_NUMBER_FLAG_DECIMAL = 8192 # for decimal
+	    @editTextSecond.setRawInputType(@TYPE_NUMBER_FLAG_DECIMAL)
+
+		puts "Second"
+
+	end # updateWinPriceSecond
 
 #=======================
 	def setupLayouts
-  
+
     @lay = LinearLayout.new(@activity)
     @lay.setOrientation(LinearLayout::VERTICAL)
 
@@ -78,6 +104,9 @@ class JRonA
 
  	@btnFirst.setOnClickListener(proc { updateExotics })
 	@btnSecond.setOnClickListener(proc { updateExotics })
+
+	@editTextFirst.setOnFocusChangeListener(proc { updateWinPriceFirst })
+    @editTextSecond.setOnFocusChangeListener(proc { updateWinPriceSecond })
 
   end # setupLayouts
 
