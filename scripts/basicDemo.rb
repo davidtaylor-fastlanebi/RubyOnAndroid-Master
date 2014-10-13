@@ -35,11 +35,38 @@ class JRonA
 
 	def updateExotics
 
-		exacta = @editTextFirst.getText() #    David debug - babby steps
-		quinella = @editTextSecond.getText() #  David debug - babby steps
+		priceFirst = @editTextFirst.getText().to_s #    David debug - babby steps
+		priceSecond = @editTextSecond.getText().to_s #  David debug - babby steps
 
-		@calcE.setText(exacta)
-		@calcQ.setText(quinella)
+		if priceFirst.to_f * priceSecond.to_f > 0   # only update exotics if both candidates have valid prices
+
+        # calculate probability of a win by First and Second Candidates
+        @ROI = 0.75  # Return on average dollar invested into TAB is 85% but only near jump. prior approx say 75%
+        pF1 = 1/(1+(priceFirst.to_f-1)/@ROI)  # probability of First wining the event to end in position 1
+		pS1 = 1/(1+(priceSecond.to_f-1)/@ROI) # probability of Second winning the event alternatively in position 1
+
+
+        # Scenario A -  First wins and Second comes next - calculate the probability of Second ending in position 2
+        pS2 = pS1 / (1-pF1)
+
+        # Scenario B -  Second wins and First comes next- calculate the probability of First ending in position 2
+        pF2 = pF1 / (1-pS1)
+
+        # Calculate Exotic probabilities for Scenarios A and B
+		pExactaA = pF1 * pS2
+		pExactaB = pS1 * pF2
+
+		pQuinella = pExactaA + pExactaB
+
+		# Calculate Exotic break even price
+		bEvenExactaA =  (1/ pExactaA-1)
+		bEvenExactaB =  (1/ pExactaB-1)
+		bEvenQuinella =  (1/ pQuinella-1)
+
+		@calcE.setText("Exacta break even price is $  #{bEvenExactaA}")
+		@calcQ.setText("Quinella break even price is $  #{bEvenQuinella}")
+
+        end # if valid prices
 
 	end # updateExotics
 
